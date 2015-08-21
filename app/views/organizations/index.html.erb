@@ -1,0 +1,11 @@
+<h1>Home</h1>
+
+<% @organizations.each do |org| %>
+	<p>Name: </p>
+	<p>
+		<%= org.name %>
+	<p>
+<% end %>
+
+<%= link_to 'New', new_organization_path %>
+<%= link_to 'Sign Up', new_user_path %>
