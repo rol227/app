@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
   belongs_to :organization
-  has_many :vip
+  has_many :vips
 end
+

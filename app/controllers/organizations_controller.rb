@@ -6,7 +6,6 @@ class OrganizationsController < ApplicationController
 
 	def show
 		@organization = Organization.find(params[:id])
-		@events = Event.all
 	end
 
 	def new

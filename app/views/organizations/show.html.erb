@@ -2,26 +2,31 @@
 	<%= @organization.name %>
 </h1>
 
-<%=link_to 'Schedule', root_path %>| 
-<%=link_to 'FAQ', root_path %>| 
-<%=link_to 'Important Docs', root_path %>|
-<%=link_to 'Overviews', root_path %>|
-<%=link_to 'New Event', new_organization_event_path(@organization) %>
+<%=link_to 'Schedule', root_path %> | 
+<%=link_to 'FAQ', root_path %> | 
+<%=link_to 'Important Docs', root_path %> |
+<%=link_to 'Overviews', root_path %> |
+<%=link_to 'New Event', new_organization_event_path(@organization) %> |
 <%=link_to 'New V.I.P', new_organization_vip_path(@organization) %>
 
-<% @events.each do |event| %>
-<p>
+
+<% @events = @organization.events.group_by(&:when) %>
+	<% @events.each do |date, event| %>
 	<table>
 		<tr>
 			<th>
-				<%= event.when.strftime("%A, %e %b %Y") %>
+				<%= date.strftime("%A, %e %b %Y") %>
 			</th>
 		</tr>
-		<tr>
-			<td>
-			 	<%= event.name %>
-			</td>
-		</tr>
-	</table>
-</p>
+		<% event.each do |list| %>
+			<tr>
+				<td>
+					<%= list.name %> given by
+					<% list.vips.each do |v| %>
+						<%= v.name %>
+					<% end %>
+				</td>
+			</tr>
+		</table>
+	<% end %>
 <% end %>

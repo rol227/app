@@ -19,6 +19,6 @@ class VipsController < ApplicationController
 	private
 
 	def vip_params
-		params.require(:vip).permit(:name)
+		params.require(:vip).permit(:name, :organization_id)
 	end
 end
