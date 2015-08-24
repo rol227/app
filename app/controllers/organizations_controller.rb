@@ -16,7 +16,9 @@ class OrganizationsController < ApplicationController
 	end
 
 	def create
-		@organization = Organization.new(params[org_params])
+		@organization = Organization.new(org_params)
+		@organization.user_id = current_user.id
+
 		if @organization.save
 			redirect_to root_path
 		else

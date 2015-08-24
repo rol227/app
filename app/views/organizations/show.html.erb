@@ -1,0 +1,9 @@
+<h1>
+	<%= @organization.name %>
+</h1>
+
+<%=link_to 'Schedule', root_path %>| 
+<%=link_to 'FAQ', root_path %>| 
+<%=link_to 'Important Docs', root_path %>|
+<%=link_to 'Overviews', root_path %>|
+<%=link_to 'New Event', new_organization_event_path(@organization) %>
