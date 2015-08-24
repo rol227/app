@@ -16,6 +16,9 @@ class EventsController < ApplicationController
 		end
 	end
 
+	def update
+	end
+
 	private
 	def event_params
 		params.require(:event).permit(:when)

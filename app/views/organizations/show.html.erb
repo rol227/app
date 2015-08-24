@@ -7,3 +7,20 @@
 <%=link_to 'Important Docs', root_path %>|
 <%=link_to 'Overviews', root_path %>|
 <%=link_to 'New Event', new_organization_event_path(@organization) %>
+
+<% @events.each do |event| %>
+<p>
+	<table>
+		<tr>
+			<th>
+				<%= event.when.strftime("%A, %e %b %Y") %>
+			</th>
+		</tr>
+		<tr>
+			<td>
+			 	<%= event.name %>
+			</td>
+		</tr>
+	</table>
+</p>
+<% end %>

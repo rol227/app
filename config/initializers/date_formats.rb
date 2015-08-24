@@ -1,0 +1,1 @@
+Date::DATE_FORMATS[:default] = Time::DATE_FORMATS[:default] = "%A/%e/%b/%Y"
