@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'organizations#index'
   resources :organizations do
-    resources :events
+    resources :events, :vips
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
