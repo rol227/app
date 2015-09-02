@@ -1,0 +1,9 @@
+$('#render-form').html("<%= j (render 'form') %>");
+
+$("#myModal").on("hidden.bs.modal", function(){
+    $("#render-form").html("<%= j (render 'upload_links') %>");
+});
+
+$("#myForm").on('submit', function(){
+	$("#myModal").modal('hide');
+});

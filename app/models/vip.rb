@@ -1,4 +1,4 @@
 class Vip < ActiveRecord::Base
-	belongs_to :organization
-	belongs_to :event
+	has_many :events
+	has_many :organizations, :through => :events
 end

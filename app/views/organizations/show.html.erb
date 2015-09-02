@@ -7,26 +7,25 @@
 <%=link_to 'Important Docs', root_path %> |
 <%=link_to 'Overviews', root_path %> |
 <%=link_to 'New Event', new_organization_event_path(@organization) %> |
-<%=link_to 'New V.I.P', new_organization_vip_path(@organization) %>
+<%=link_to 'V.I.Ps', organization_vips_path(@organization) %>
 
+</br>
 
-<% @events = @organization.events.group_by(&:when) %>
-	<% @events.each do |date, event| %>
-	<table>
-		<tr>
-			<th>
-				<%= date.strftime("%A, %e %b %Y") %>
-			</th>
-		</tr>
-		<% event.each do |list| %>
-			<tr>
-				<td>
-					<%= list.name %> given by
-					<% list.vips.each do |v| %>
-						<%= v.name %>
-					<% end %>
-				</td>
-			</tr>
-		</table>
-	<% end %>
+<% @event.each do |date, event| %>
+    <table>
+        <tr>
+            <th>
+                <%= date %>
+            <th>
+        </tr>
+        <% event.each do |list| %>
+            <tr>
+                <td>
+                    <% list.vip.each do |pls| %>
+                        <%= pls.name %>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
 <% end %>

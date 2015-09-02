@@ -1,0 +1,11 @@
+<h1>Organization Vips</h1>
+<%= link_to 'New Vip', new_organization_vip_path(@organization) %>
+
+<% @vips.each do |vip| %>
+	<h2><%= vip.name %></h2>
+	<p><%= vip.about %></p>
+	<%= link_to 'Show', organization_vip_path(@organization, vip) %> |
+	<%= link_to 'Edit', edit_organization_vip_path(@organization, vip) %> |
+	<%= link_to 'Destroy', organization_vip_path(@organization, vip), method: :delete %>
+	</br> 
+<% end %>
